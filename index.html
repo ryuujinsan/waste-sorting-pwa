@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゴミ分別アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50"> <link rel="apple-touch-icon" href="images/icon-192x192.png"> </head>
+<body>
+    <header>
+        <h1>ゴミ分別ガイド</h1>
+        <div class="office-selector-container">
+            <label for="office-select">事業所選択:</label>
+            <select id="office-select">
+                </select>
+        </div>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-button active" data-tab="search">分別検索</button>
+        <button class="tab-button" data-tab="calendar">収集カレンダー</button>
+    </nav>
+
+    <main class="tab-content-container">
+        <section id="search" class="tab-content active">
+            <input type="text" id="search-input" placeholder="ゴミの名前を入力...">
+            <div id="search-results">
+                </div>
+        </section>
+
+        <section id="calendar" class="tab-content">
+            <h2>収集カレンダー</h2>
+            <div id="calendar-view">
+                </div>
+        </section>
+    </main>
+
+    <script src="data/waste_data.js"></script> <script src="script.js"></script> <script>
+        // Service Workerの登録
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

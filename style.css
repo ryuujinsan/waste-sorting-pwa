@@ -1,0 +1,206 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4CAF50; /* 緑色 */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.office-selector-container {
+    margin-top: 10px;
+}
+
+#office-select {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: calc(100% - 40px); /* Adjust width */
+    max-width: 300px;
+}
+#office-select option {
+    color: #333; /* For options */
+    background-color: white;
+}
+
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.tab-button {
+    flex-grow: 1;
+    padding: 15px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #555;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #fff;
+    color: #4CAF50;
+    border-bottom: 3px solid #4CAF50;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#search-input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.waste-item {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+}
+
+.waste-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+    border: 1px solid #eee;
+}
+
+.waste-item-content h3 {
+    margin-top: 0;
+    color: #2196F3; /* 青色 */
+}
+
+.waste-item-content p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.waste-item-content p strong {
+    color: #333;
+}
+
+/* カレンダービュー */
+#calendar-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.calendar-day {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    border-left: 5px solid #4CAF50; /* アクセントカラー */
+}
+
+.calendar-day h3 {
+    margin-top: 0;
+    color: #4CAF50;
+    font-size: 1.2em;
+}
+
+.calendar-day ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar-day ul li {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.calendar-day ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 検索結果なしのメッセージ */
+#search-results p.no-results {
+    text-align: center;
+    color: #777;
+    margin-top: 40px;
+    font-size: 1.1em;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    header {
+        padding: 10px 15px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    .tab-button {
+        padding: 12px 5px;
+        font-size: 1em;
+    }
+    main {
+        padding: 15px;
+    }
+    #search-input {
+        padding: 10px;
+    }
+    .waste-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .waste-item img {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .waste-item-content {
+        width: 100%;
+    }
+    #calendar-view {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+    }
+}
